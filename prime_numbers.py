@@ -8,7 +8,34 @@ prime_numbers = []
 not_prime_numbers = []
 
 
+def show_prime():
+    """The function shows prime numbers. 
+    
+    The numbers are separated by commas if there are 2 numbers and more."""
+
+    print("Prime numbers are: ", end='')
+    popped_number = prime_numbers.pop(-1)
+    for prime_number in prime_numbers:
+        print(prime_number, end=', ')  
+    print(popped_number)  
+
+def show_not_prime():
+    """The function shows not prime numbers. 
+    
+    The numbers are separated by commas if there are 2 numbers and more."""
+
+    print("Not prime numbers are: ", end='')
+    popped_number = not_prime_numbers.pop(-1)
+    for not_prime_number in not_prime_numbers:
+        print(not_prime_number, end=', ')  
+    print(popped_number)  
+
+
 def show_lists():  
+    """The function shows the user the results of what they entered.
+    
+    The result depends on the amount of numbers they've typed 
+    to check if a number/numbers is/are prime or not."""
 
     if len(prime_numbers) == 1 and len(not_prime_numbers) == 0:
         print("The prime number is {}".format(prime_numbers[0]))
@@ -16,27 +43,27 @@ def show_lists():
     elif len(not_prime_numbers) == 1 and len(prime_numbers) == 0:
         print("Not prime number is {}".format(not_prime_numbers[0]))
 
-    elif len(prime_numbers) > 1 and len(not_prime_numbers) == 0:
-        print("Prime numbers are: {}".format(prime_numbers)) 
+    elif len(prime_numbers) > 1 and len(not_prime_numbers) == 0: 
+        show_prime()           
 
-    elif len(not_prime_numbers) > 1 and len(prime_numbers) == 0:
-        print("Not prime numbers are: {}".format(not_prime_numbers)) 
+    elif len(not_prime_numbers) > 1 and len(prime_numbers) == 0: 
+        show_not_prime()
 
-    elif len(prime_numbers) > 1 and len(not_prime_numbers) == 1:
-        print("Prime numbers are: {}".format(prime_numbers)) 
+    elif len(prime_numbers) > 1 and len(not_prime_numbers) == 1:  
+        show_prime()
         print("Not prime number is {}".format(not_prime_numbers[0]))
 
     elif len(not_prime_numbers) > 1 and len(prime_numbers) == 1:
         print("The prime number is {}".format(prime_numbers[0]))
-        print("Not prime numbers are: {}".format(not_prime_numbers))  
+        show_not_prime()
     
     elif len(prime_numbers) == 1 and len(not_prime_numbers) == 1:
         print("The prime number is {}".format(prime_numbers[0]))
         print("Not prime number is {}".format(not_prime_numbers[0]))
     
     else:
-        print("Prime numbers are: {}".format(prime_numbers)) 
-        print("Not prime numbers are: {}".format(not_prime_numbers)) 
+        show_prime()
+        show_not_prime()
         
 
 def ask_user():
@@ -49,7 +76,7 @@ def ask_user():
 
     if answer == 'no':
         sleep(1)
-        print("Ok, thanks for using the program! ")
+        print("Ok, thanks for using the program!\n")
         sleep(1)
         show_lists()
         quit()
