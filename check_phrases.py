@@ -24,5 +24,5 @@ if (is_palindrome(phrase)):
     sleep(1)
     print("Yes, your phrase is a polindrome.")
 else:
-    sleep(2)
+    sleep(1)
     print("No, your phrase isn't a polindrome.")
