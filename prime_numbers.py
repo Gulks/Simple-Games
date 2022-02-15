@@ -19,6 +19,7 @@ def show_prime():
         print(prime_number, end=', ')  
     print(popped_number)  
 
+    
 def show_not_prime():
     """The function shows not prime numbers. 
     
