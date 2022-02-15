@@ -16,13 +16,13 @@ def is_palindrome(a):
     return a == reverse(a)
 
 
-phrase = input("Enter a phrase and I'll check if it is a polindrome: ")
+phrase = input("Enter a phrase and I'll check if it is a palindrome: ")
 phrase = re.sub("[^A-Za-z]", "", phrase)
 phrase = phrase.lower()
 
 if (is_palindrome(phrase)):  
     sleep(1)
-    print("Yes, your phrase is a polindrome.")
+    print("Yes, your phrase is a palindrome.")
 else:
     sleep(1)
-    print("No, your phrase isn't a polindrome.")
+    print("No, your phrase isn't a palindrome.")
