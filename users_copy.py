@@ -3,20 +3,16 @@ from time import sleep
 
 users_names = []
 
-def ask_users_names():
-    while True: 
-        try: 
-            name = str(input("\nWhat is your name? "))
-            
-        except ValueError:
-            print("Sorry, you can't enter numbers, try again please: ")
-            ask_users_names() 
 
-        else: 
-            global users_names
-            name = re.sub("[^A-Za-z]", "", name) 
-            users_names.append(name.title())
-            ask_to_continue()  
+def play_game():
+
+    while True: 
+        global users_names
+        name = input("\nWhat is your name? ")
+        name = re.sub("[^A-Za-z]", "", name) 
+        users_names.append(name.title())
+        ask_to_continue()  
+
 
 
 def ask_to_continue(): 
@@ -39,7 +35,8 @@ def ask_to_continue():
             show_names() 
 
     else:
-        ask_users_names() 
+        play_game() 
+
 
 
 def save_users_names():
@@ -50,6 +47,7 @@ def save_users_names():
     f = open('users_names.txt', 'w')
     f.write(new_list)    
     f.close() 
+
 
 
 def show_names():   
@@ -96,6 +94,7 @@ def show_names():
         quit()
 
 
+
 def enumerate_names():
     """Enumerares users names with comma and does not depict the last one (comma)."""
 
@@ -108,4 +107,4 @@ def enumerate_names():
 
 
 
-ask_users_names()
+play_game() 
